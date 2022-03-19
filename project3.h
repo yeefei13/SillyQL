@@ -22,6 +22,7 @@
 #include <vector>
 #include <getopt.h>
 #include "xcode_redirect.hpp"
+#include"TableEntry.h"
 using namespace std;
 
 
@@ -32,10 +33,27 @@ struct SQL {
     
     struct table 
     {   
-        vector<vector<int> > data;
-        unordered_map<string, unordered_map<string, vector<int> &> > hash;
-        unordered_map<string, map<string, vector<int> &> > bst;
+        vector<vector<TableEntry> > data;
+        unordered_map<string, unordered_map<string, vector<TableEntry> &> > hash;
+        map<string, map<string, vector<TableEntry> &> > bst;
     }; 
-    map<string,table> SillQL;
+    unordered_map<string,table> SillQL;
 
+    void Running();
+
+    void Create();
+
+    void Delete();
+
+    void Gindex();
+
+    void print();
+
+    void Join();
+
+    void Rmove();
+
+    void quit();
+
+    void insert();
 };

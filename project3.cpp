@@ -29,7 +29,9 @@ using namespace std;
 int main(int argc, char *argv[]) {
     ios_base::sync_with_stdio(false);
     xcode_redirect(argc,argv);
-
+    SQL sql;
+    sql.setup(argc,argv);
+    sql.Running();
     return 0;
 }
 
@@ -65,6 +67,38 @@ void SQL::setup(int argc, char *argv[])
             exit(1);
         } // switch
     }     // while
+}
+
+void SQL::Running(){
+    string decider;
+    while (cin>>decider){
+        switch(decider[0]){
+            case 'C':
+                Create();
+                break;
+            case 'I':
+                insert();
+                break;
+            case 'D':
+                Delete();
+                break;
+            case 'G':
+                Gindex();
+                break;
+            case 'P':
+                print();
+                break;
+            case 'J':
+                Join();
+                break;
+            case 'R':
+                Rmove();
+                break;
+            case '#':
+                getline(cin,decider);
+                break;
+        }
+    }
 }
 
 
