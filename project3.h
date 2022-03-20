@@ -31,11 +31,20 @@ struct SQL {
 
     void setup(int argc, char *argv[]);
     
+    struct index_condition{
+        bool e_hash;
+        bool e_bst;
+    };
+
     struct table 
     {   
         vector<vector<TableEntry> > data;
-        unordered_map<string, unordered_map<string, vector<TableEntry> &> > hash;
-        map<string, map<string, vector<TableEntry> &> > bst;
+        unordered_map<string,size_t> column;
+        vector<string> data_type;
+        unordered_map<string, vector<TableEntry> &> hash;
+        map<string, vector<TableEntry> &>  bst;
+        index_condition table_index;
+        vector<index_condition> col_condition;
     }; 
     unordered_map<string,table> SillQL;
 
@@ -56,4 +65,10 @@ struct SQL {
     void quit();
 
     void insert();
+
+
+
+    bool type_convert_bool(string& i);
+    double type_convert_double(string& i);
+    int type_convert_int(string& i);
 };
