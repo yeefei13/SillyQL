@@ -1,0 +1,66 @@
+% % % % % Error: unrecognized command
+% Error: unrecognized command
+% New table conflict_table with column(s) - created
+% Error during CREATE: Cannot create already existing table conflict_table
+% Error during INSERT: conflict_table2 does not name a table in the database
+% New table conflict_table2 with column(s) bool int double string created
+% Added 2 rows to conflict_table2 from position 0 to 1
+% Added 2 rows to conflict_table2 from position 2 to 3
+% Error during PRINT: void does not name a table in the database
+% - 
+Printed 0 matching rows from conflict_table
+% Error during PRINT: void does not name a column in conflict_table2
+% string double int bool 
+123456789 12 -1 true 
+1234.5678 -12 1 false 
+false 12 0 true 
+true 99.99 0 false 
+Printed 4 matching rows from conflict_table2
+% double int 
+12 -1 
+-12 1 
+12 0 
+99.99 0 
+Printed 4 matching rows from conflict_table2
+% Error during PRINT: void does not name a column in conflict_table2
+% string double int bool 
+123456789 12 -1 true 
+false 12 0 true 
+true 99.99 0 false 
+Printed 3 matching rows from conflict_table2
+% string double int bool 
+Printed 0 matching rows from conflict_table2
+% string double int bool 
+1234.5678 -12 1 false 
+Printed 1 matching rows from conflict_table2
+% string double int bool 
+true 99.99 0 false 
+Printed 1 matching rows from conflict_table2
+% string double int bool 
+1234.5678 -12 1 false 
+Printed 1 matching rows from conflict_table2
+% string double int bool 
+123456789 12 -1 true 
+false 12 0 true 
+Printed 2 matching rows from conflict_table2
+% string double int bool 
+1234.5678 -12 1 false 
+Printed 1 matching rows from conflict_table2
+% string double int bool 
+123456789 12 -1 true 
+Printed 1 matching rows from conflict_table2
+% string double int bool 
+false 12 0 true 
+true 99.99 0 false 
+Printed 2 matching rows from conflict_table2
+% string double int bool 
+123456789 12 -1 true 
+false 12 0 true 
+Printed 2 matching rows from conflict_table2
+% string double int bool 
+1234.5678 -12 1 false 
+true 99.99 0 false 
+Printed 2 matching rows from conflict_table2
+% Error during DELETE: void does not name a table in the database
+% Error during DELETE: void does not name a column in conflict_table2
+% Thanks for being silly!

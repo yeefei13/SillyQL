@@ -1,0 +1,53 @@
+CREATE rty 10 string int bool int string string bool string string double ;' uio 21` ,./ 876 ytr kl; ghj tre nbv
+#
+JOIN rty AND rty WHERE ;' = 876 AND PRINT 2 tre 2 ,./ 2
+GENERATE FOR rty hash INDEX ON ,./
+#
+JOIN 90- AND fg WHERE iuy = hj AND PRINT 8 io 2 890 1 /., 1 as 1 gh 2 098 1 765 1 \] 1
+DELETE FROM rty WHERE 876 > p[]
+JOIN rty AND rty WHERE ghj = uio AND PRINT 9 kl; 2 nbv 1 nbv 2 uio 1 ytr 1 ytr 1 876 1 nbv 1 ghj 1
+INSERT INTO rty 8 ROWS
+hj 1 true 10 p[] ewq false p[ p[ 87.110000 
+bvc 38 false 47 jk fds true fg dfg 40.670000 
+678 86 true 32 tre /., false jkl iop 162.600000 
+we 22 true 34 \][ sd true df p[] 24.150000 
+xcv 95 false 95 jk 123 false ,./ gh 46.690000 
+we 51 false 61 ui `12 false wer jkl 6.010000 
+yu 80 false 96 cxz 789 true jk jkl 156.230000 
+,mn 57 true 68 456 bvc false uio qw 105.660000 
+PRINT FROM rty 9 hash ;' nbv ghj 21` 876 \][ ghj kl; ALL
+INSERT INTO rty 9 ROWS
+ghj 86 false 74 kl as true ytr cvb 189.910000 
+hjk 27 false 7 234 .,m false [po 456 136.190000 
+kjh 65 true 39 jkl cvb true asd kl; 66.810000 
+567 99 false 4 tyu 654 false ,./ 789 133.000000 
+kl; 9 true 92 ';l p[] false fgh 543 86.100000 
+vcx 40 false 46 er qw false poi hgf 104.560000 
+';l 78 false 36 [po \][ true uio df 75.630000 
+iop 94 true 8 p[ tre true fg ytr 183.070000 
+xcv 57 false 81 345 we true 890 987 141.830000 
+DELETE FROM rty WHERE 876 = p[]
+GENERATE FOR rty hash INDEX ON ghj
+GENERATE FOR rty bst INDEX ON hash
+REMOVE rty
+CREATE m,. 10 string int string string int bool bool double string string dsa `12 sd 543 fg vbn cvb 654 [] iuy
+PRINT FROM m,. 2 iuy sd WHERE 543 > yui
+REMOVE m,.
+#
+CREATE m,. 10 double bool string bool string int string string double double kl; as qwe ghj ewq .,m kjh poi l; rty
+GENERATE FOR m,. hash INDEX ON .,m
+JOIN 0-= AND rty WHERE ewq = vcx AND PRINT 3 iuy 0 ty 0 qw 0
+GENERATE FOR m,. bst INDEX ON ewq
+INSERT INTO m,. 1 ROWS
+146.500000 false fgh false p[ 57 567 jhg 53.100000 12.260000 
+GENERATE FOR m,. bst INDEX ON hash
+GENERATE FOR m,. hash INDEX ON hash
+GENERATE FOR m,. hash INDEX ON rty
+PRINT FROM m,. 1 rty ALL
+DELETE FROM m,. WHERE l; < 119.420000
+DELETE FROM m,. WHERE rty < 100.620000
+GENERATE FOR m,. bst INDEX ON l;
+REMOVE m,.
+JOIN 678 AND jkl WHERE zxc = []\ AND PRINT 4 vbn 2 yu 2 432 1 uyt 1
+INSERT INTO \][ 1 ROWS
+QUIT

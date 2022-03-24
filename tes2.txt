@@ -1,0 +1,36 @@
+# QUIT
+# JUNK CREATE 281class 3 string string bool emotion person Y/N
+#EVIL QUIT
+#EVIL JUNK CREATE 281class 3 string string bool emotion person Y/N
+EVIL QUIT
+EVIL JUNK CREATE 281class 3 string string bool emotion person Y/N
+CREATE conflict_table 1 int -
+CREATE conflict_table 1 int -
+INSERT INTO conflict_table2 1 ROWS 
+CREATE conflict_table2 4 bool int double string bool int double string
+INSERT INTO conflict_table2 2 ROWS
+true -1 12.00 123456789
+false 1 -12.00 1234.5678
+INSERT INTO conflict_table2 2 ROWS
+true 0 12 false
+false 0 99.99 true
+PRINT FROM void 4 bool int double string ALL
+PRINT FROM conflict_table 1 - ALL
+PRINT FROM conflict_table2 4 bool int double void ALL
+PRINT FROM conflict_table2 4 string double int bool ALL
+PRINT FROM conflict_table2 2 double int ALL
+PRINT FROM conflict_table2 4 string double int bool WHERE void = 0
+PRINT FROM conflict_table2 4 string double int bool WHERE string > 1234.5678
+PRINT FROM conflict_table2 4 string double int bool WHERE string < 1234.5678
+PRINT FROM conflict_table2 4 string double int bool WHERE string = 1234.5678
+PRINT FROM conflict_table2 4 string double int bool WHERE double > 12.00
+PRINT FROM conflict_table2 4 string double int bool WHERE double < 12.00
+PRINT FROM conflict_table2 4 string double int bool WHERE double = 12.00
+PRINT FROM conflict_table2 4 string double int bool WHERE int > 0
+PRINT FROM conflict_table2 4 string double int bool WHERE int < 0
+PRINT FROM conflict_table2 4 string double int bool WHERE int = 0
+PRINT FROM conflict_table2 4 string double int bool WHERE bool > false
+PRINT FROM conflict_table2 4 string double int bool WHERE bool < true
+DELETE FROM void WHERE void = 0
+DELETE FROM conflict_table2 WHERE void = 0
+QUIT

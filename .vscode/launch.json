@@ -6,13 +6,13 @@
             "type": "lldb",
             "request": "launch",
             "preLaunchTask": "build debug executable",
-            "program": "${workspaceFolder}/EXECUTABLENAME_debug",
+            "program": "${workspaceFolder}/silly_debug",
             "stdio": [
                 null, // redirect stdin
                 null, // redirect stdout
                 null // redirect stderr
             ],
-            "args": [],
+            "args": ["<","test-1.txt",">","aout"],
             "stopOnEntry": false,
             "cwd": "${workspaceFolder}",
             "postDebugTask": "clean workspace"

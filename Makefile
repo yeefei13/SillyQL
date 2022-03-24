@@ -27,7 +27,7 @@ UNIQNAME    = yeefeiw
 IDENTIFIER  = C0F4DFE8B340D81183C208F70F9D2D797908754D
 
 # Change 'executable' to match the command name given in the project spec.
-EXECUTABLE  = project3
+EXECUTABLE  = silly
 
 # The following line looks for a project's main() in files named project*.cpp,
 # executable.cpp (substituted from EXECUTABLE above), or main.cpp
@@ -291,6 +291,8 @@ help:
 # % g++ -std=c++1z -MM *.cpp
 #
 # ADD YOUR OWN DEPENDENCIES HERE
+TableEntry.o: TableEntry.cpp TableEntry.h
+silly.o: silly.cpp xcode_redirect.hpp silly.h TableEntry.h
 
 ######################
 # TODO (end) #

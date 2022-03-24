@@ -1,0 +1,109 @@
+% New table table with column(s) bool int double string created
+% Error during GENERATE: void does not name a table in the database
+% Error during GENERATE: void does not name a column in table
+% Created hash index for table table on column string
+% Added 12 rows to table from position 0 to 11
+% string double int bool 
+b -1.1 100 false 
+s -1.1 100 false 
+w -1.1 100 false 
+Printed 3 matching rows from table
+% string double int bool 
+a -3.3 300 true 
+d -4.4 400 true 
+u -3.3 300 true 
+v -4.4 400 true 
+x -3.3 300 true 
+z -4.4 400 true 
+Printed 6 matching rows from table
+% string double int bool 
+c -2.2 200 false 
+t -2.2 200 false 
+y -2.2 200 false 
+Printed 3 matching rows from table
+% string double int bool 
+d -4.4 400 true 
+s -1.1 100 false 
+t -2.2 200 false 
+u -3.3 300 true 
+v -4.4 400 true 
+w -1.1 100 false 
+y -2.2 200 false 
+x -3.3 300 true 
+z -4.4 400 true 
+Printed 9 matching rows from table
+% string double int bool 
+b -1.1 100 false 
+a -3.3 300 true 
+Printed 2 matching rows from table
+% string double int bool 
+c -2.2 200 false 
+Printed 1 matching rows from table
+% Error during GENERATE: void does not name a column in table
+% Created bst index for table table on column double
+% Added 12 rows to table from position 12 to 23
+% Deleted 17 rows from table
+% string double int bool 
+0 -8.8 800 true 
+f -6.6 600 true 
+e -5.5 500 true 
+d -4.4 400 true 
+a -3.3 300 true 
+c -2.2 200 false 
+b -1.1 100 false 
+Printed 7 matching rows from table
+% Deleted 1 rows from table
+% string double int bool 
+0 -8.8 800 true 
+e -5.5 500 true 
+d -4.4 400 true 
+a -3.3 300 true 
+c -2.2 200 false 
+b -1.1 100 false 
+Printed 6 matching rows from table
+% Deleted 1 rows from table
+% string double int bool 
+e -5.5 500 true 
+d -4.4 400 true 
+a -3.3 300 true 
+c -2.2 200 false 
+b -1.1 100 false 
+Printed 5 matching rows from table
+% Deleted 1 rows from table
+% string double int bool 
+e -5.5 500 true 
+d -4.4 400 true 
+a -3.3 300 true 
+c -2.2 200 false 
+Printed 4 matching rows from table
+% string double int bool 
+c -2.2 200 false 
+Printed 1 matching rows from table
+% string double int bool 
+e -5.5 500 true 
+d -4.4 400 true 
+Printed 2 matching rows from table
+% string double int bool 
+a -3.3 300 true 
+Printed 1 matching rows from table
+% string double int bool 
+d -4.4 400 true 
+e -5.5 500 true 
+Printed 2 matching rows from table
+% string double int bool 
+a -3.3 300 true 
+Printed 1 matching rows from table
+% string double int bool 
+c -2.2 200 false 
+Printed 1 matching rows from table
+% Deleted 1 rows from table
+% string double int bool 
+e -5.5 500 true 
+d -4.4 400 true 
+a -3.3 300 true 
+Printed 3 matching rows from table
+% Deleted 2 rows from table
+% string double int bool 
+a -3.3 300 true 
+Printed 1 matching rows from table
+% Thanks for being silly!

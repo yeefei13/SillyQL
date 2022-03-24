@@ -1,0 +1,37 @@
+% New table rty with column(s) ;' uio 21` ,./ 876 ytr kl; ghj tre nbv created
+% % tre ,./ 
+Printed 0 rows from joining rty to rty
+% Created hash index for table rty on column ,./
+% % Error during JOIN: 90- does not name a table in the database
+% Deleted 0 rows from rty
+% kl; nbv nbv uio ytr ytr 876 nbv ghj 
+Printed 0 rows from joining rty to rty
+% Added 8 rows to rty from position 0 to 7
+% Error during PRINT: hash does not name a column in rty
+% Added 9 rows to rty from position 8 to 16
+% Deleted 1 rows from rty
+% Created hash index for table rty on column ghj
+% Error during GENERATE: hash does not name a column in rty
+% Table rty deleted
+% New table m,. with column(s) dsa `12 sd 543 fg vbn cvb 654 [] iuy created
+% iuy sd 
+Printed 0 matching rows from m,.
+% Table m,. deleted
+% % New table m,. with column(s) kl; as qwe ghj ewq .,m kjh poi l; rty created
+% Created hash index for table m,. on column .,m
+% Error during JOIN: 0-= does not name a table in the database
+% Created bst index for table m,. on column ewq
+% Added 1 rows to m,. from position 0 to 0
+% Error during GENERATE: hash does not name a column in m,.
+% Error during GENERATE: hash does not name a column in m,.
+% Created hash index for table m,. on column rty
+% rty 
+12.26 
+Printed 1 matching rows from m,.
+% Deleted 1 rows from m,.
+% Deleted 0 rows from m,.
+% Created bst index for table m,. on column l;
+% Table m,. deleted
+% Error during JOIN: 678 does not name a table in the database
+% Error during INSERT: \][ does not name a table in the database
+% Thanks for being silly!

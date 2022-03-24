@@ -1,0 +1,87 @@
+% Error during PRINT: 3900 does not name a table in the database
+% Error during REMOVE: 7300 does not name a table in the database
+% New table 3800 with column(s) 3400 5800 3300 800 300 8200 4300 3200 9500 9700 created
+% Error during JOIN: 7300 does not name a table in the database
+% Added 2 rows to 3800 from position 0 to 1
+% New table 7300 with column(s) 2200 9800 7300 8700 9600 8200 7700 2100 2900 900 created
+% Created hash index for table 7300 on column 2100
+% % Deleted 1 rows from 3800
+% 300 9800 2100 2200 800 
+Printed 0 rows from joining 7300 to 3800
+% Table 7300 deleted
+% Error during JOIN: 7300 does not name a table in the database
+% 3400 3300 
+Printed 0 matching rows from 3800
+% Added 9 rows to 3800 from position 1 to 9
+% 4300 3200 800 3300 300 300 4300 
+false false false 169.37 151.95 151.95 true 
+false false false 169.37 151.95 151.95 false 
+false false false 169.37 151.95 151.95 false 
+false false false 169.37 151.95 151.95 false 
+true true true 182.22 66.95 66.95 false 
+true true true 182.22 66.95 66.95 false 
+true true true 182.22 66.95 66.95 true 
+true true true 182.22 66.95 66.95 false 
+true true true 182.22 66.95 66.95 false 
+true true true 182.22 66.95 66.95 false 
+false false false 91.39 91.23 91.23 true 
+false false false 91.39 91.23 91.23 false 
+false false false 91.39 91.23 91.23 false 
+false false false 91.39 91.23 91.23 false 
+true true true 164.8 3.94 3.94 false 
+true true true 164.8 3.94 3.94 false 
+true true true 164.8 3.94 3.94 true 
+true true true 164.8 3.94 3.94 false 
+true true true 164.8 3.94 3.94 false 
+true true true 164.8 3.94 3.94 false 
+false false false 35.69 186.67 186.67 true 
+false false false 35.69 186.67 186.67 false 
+false false false 35.69 186.67 186.67 false 
+false false false 35.69 186.67 186.67 false 
+false false false 37.98 72.77 72.77 true 
+false false false 37.98 72.77 72.77 false 
+false false false 37.98 72.77 72.77 false 
+false false false 37.98 72.77 72.77 false 
+false false false 36.17 96.79 96.79 true 
+false false false 36.17 96.79 96.79 false 
+false false false 36.17 96.79 96.79 false 
+false false false 36.17 96.79 96.79 false 
+false false false 64.53 180.05 180.05 true 
+false false false 64.53 180.05 180.05 false 
+false false false 64.53 180.05 180.05 false 
+false false false 64.53 180.05 180.05 false 
+false false false 122.52 117.59 117.59 true 
+false false false 122.52 117.59 117.59 false 
+false false false 122.52 117.59 117.59 false 
+false false false 122.52 117.59 117.59 false 
+false true true 147.59 106.97 106.97 false 
+false true true 147.59 106.97 106.97 false 
+false true true 147.59 106.97 106.97 true 
+false true true 147.59 106.97 106.97 false 
+false true true 147.59 106.97 106.97 false 
+false true true 147.59 106.97 106.97 false 
+Printed 46 rows from joining 3800 to 3800
+% Error during PRINT: 8700 does not name a column in 3800
+% New table 7300 with column(s) 8400 4600 2200 1500 7600 2900 5600 8200 400 4200 created
+% Added 6 rows to 3800 from position 10 to 15
+% Table 7300 deleted
+% Created bst index for table 3800 on column 3300
+% Table 3800 deleted
+% New table 7300 with column(s) 4700 5600 6500 7100 1600 2300 6600 1200 8100 9800 created
+% New table 3800 with column(s) 3600 2300 5200 6600 9800 7800 4300 1100 2400 5700 created
+% Deleted 0 rows from 7300
+% Deleted 0 rows from 3800
+% 1100 4300 1100 4300 5700 5700 2400 6600 
+Printed 0 matching rows from 3800
+% 4700 1200 
+Printed 0 matching rows from 7300
+% 5200 5200 3600 9800 1100 
+Printed 0 matching rows from 3800
+% Added 1 rows to 3800 from position 0 to 0
+% 6600 
+Printed 0 matching rows from 7300
+% Added 6 rows to 3800 from position 1 to 6
+% Table 3800 deleted
+% Added 8 rows to 7300 from position 0 to 7
+% Error during GENERATE: 9100 does not name a table in the database
+% Thanks for being silly!

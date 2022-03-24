@@ -1,0 +1,51 @@
+% New table 6900 with column(s) 4800 3500 4000 8400 6300 6000 3400 6900 2400 400 created
+% Table 6900 deleted
+% New table 1600 with column(s) 7700 9500 7100 8500 9000 4300 6700 5700 500 1100 created
+% New table 1700 with column(s) 9100 600 6000 10000 9400 2700 8600 3400 3500 4100 created
+% Table 1700 deleted
+% Error during REMOVE: 1700 does not name a table in the database
+% 6700 
+Printed 0 matching rows from 1600
+% Table 1600 deleted
+% New table 1600 with column(s) 8300 3000 3800 4200 5600 1100 2900 6400 4500 3500 created
+% New table 6900 with column(s) 6200 6500 2200 7300 9100 5300 2600 9300 3700 6600 created
+% 5600 5600 3500 3800 6400 2900 
+Printed 0 matching rows from 1600
+% Added 5 rows to 1600 from position 0 to 4
+% 5300 9300 6200 1100 1100 7300 6200 4500 
+Printed 0 rows from joining 1600 to 6900
+% New table 5900 with column(s) 8800 6000 9800 5000 1600 800 2700 2800 1100 5600 created
+% Table 1600 deleted
+% Error during INSERT: 1600 does not name a table in the database
+% New table 1600 with column(s) 2100 4700 5900 3100 1100 7800 3200 6200 9600 1800 created
+% 5300 6500 3700 3700 5300 
+Printed 0 matching rows from 6900
+% Added 2 rows to 1600 from position 0 to 1
+% New table 1700 with column(s) 3600 2700 1100 6700 8000 700 3200 9900 5000 4400 created
+% New table 2100 with column(s) 6700 700 6300 200 8600 7300 2000 6500 3100 300 created
+% 6200 5900 3200 1100 1800 4700 2100 9600 9600 
+7 10000 4700 true true 1300 35 1600 1600 
+81 9700 6100 false true 5300 31 1200 1200 
+Printed 2 matching rows from 1600
+% Error during PRINT: 5900 does not name a column in 5900
+% Created bst index for table 6900 on column 6600
+% Deleted 0 rows from 5900
+% Deleted 0 rows from 6900
+% Added 8 rows to 1700 from position 0 to 7
+% Deleted 5 rows from 1700
+% 
+Printed 0 matching rows from 5900
+% Added 4 rows to 1600 from position 2 to 5
+% 6200 6200 7800 4700 3100 
+7 7 87 1300 85 
+81 81 91 5300 65 
+69 69 44 500 92 
+84 84 19 2100 91 
+14 14 35 9700 75 
+58 58 33 2000 82 
+Printed 6 matching rows from 1600
+% 2000 300 
+Printed 0 matching rows from 2100
+% Table 5900 deleted
+% Deleted 3 rows from 1600
+% Thanks for being silly!
