@@ -76,7 +76,7 @@ struct SQL
     {
         vector<vector<TableEntry>> data;
         unordered_map<string, size_t> column;
-        vector<string> data_type;
+        vector<int> data_type;
         unordered_map<TableEntry, vector<size_t>> hash;
         map<TableEntry, vector<size_t>> bst;
         // 0 -> both no 1-> hash yes 2-> bst yes 3-> both yes
@@ -105,8 +105,6 @@ struct SQL
 
     void Rmove(); // done
 
-    void quit(); // done
-
     void insert(); // done
 
     bool type_convert_bool(string &i)
@@ -125,20 +123,20 @@ struct SQL
     {
         return stoi(i);
     }
-    TableEntry type_convert(string &i, string &type)
+    TableEntry type_convert(string &i, int &type)
     {
-        if (type[0] == 'i')
+        if (type==0)
         {
             TableEntry cur_value(type_convert_int(i));
             return cur_value;
         }
 
-        else if (type[0] == 'd')
+        else if (type==1)
         {
             TableEntry cur_value(type_convert_double(i));
             return cur_value;
         }
-        else if (type[0] == 's')
+        else if (type==2)
         {
             TableEntry cur_value(i);
             return cur_value;

@@ -1,0 +1,76 @@
+CREATE t1 4 int double string bool col1 col2 col3 col4
+CREATE t2 4 int double string bool col1 col2 col3 col4
+GENERATE FOR t1 bst INDEX ON col3
+GENERATE FOR t2 hash INDEX ON col3
+INSERT INTO t1 6 ROWS
+17 1.6 3 true
+14 1.3 c true
+12 1.1 a true
+16 1.5 2 false
+13 1.2 b false
+15 1.4 1 false
+INSERT INTO t2 6 ROWS
+27 2.6 ! true
+24 2.3 @ true
+22 2.1 # true
+26 2.5 $ false
+23 2.2 % false
+25 2.4 % false
+PRINT FROM t1 4 col3 col1 col3 col4 WHERE col3 > c
+PRINT FROM t1 4 col3 col1 col3 col4 WHERE col3 < c
+PRINT FROM t1 4 col3 col1 col3 col4 WHERE col3 = c
+GENERATE FOR t1 hash INDEX ON col3
+GENERATE FOR t2 bst INDEX ON col3
+PRINT FROM t1 4 col3 col1 col3 col4 WHERE col3 > #
+PRINT FROM t1 4 col3 col1 col3 col4 WHERE col3 < #
+PRINT FROM t1 4 col3 col1 col3 col4 WHERE col3 = #
+INSERT INTO t1 15 ROWS
+51 5.7 500 true
+66 6.0 600 true 
+74 7.3 700 false 
+51 5.7 1000 true 
+66 6.0 51 false 
+74 7.3 66 false 
+87 7.8 74 true 
+51 5.7 650 true 
+66 6.0 700 false 
+74 7.3 800 true
+87 7.8 900 false 
+51 5.7 1000 true
+66 6.0 0 false 
+74 7.3 1200 false 
+87 7.8 1 false 
+INSERT INTO t2 15 ROWS
+51 700 500 true
+66 800 600 true 
+74 900 700 false 
+51 1000 1000 true 
+66 6.0 1100 false 
+74 7.3 1200 false 
+87 7.8 1800 true 
+51 5.7 650 true 
+66 6.0 700 false 
+74 7.3 800 true
+87 7.8 900 false 
+51 5.7 1000 true
+66 6.0 0 false 
+74 7.3 1200 false 
+87 7.8 1 false
+JOIN t1 AND t2 WHERE col4 = col4 AND PRINT 4 col1 2 col2 2 col3 2 col4 1 
+JOIN t2 AND t1 WHERE col3 = col3 AND PRINT 4 col1 2 col2 2 col3 2 col4 1 
+JOIN t1 AND t2 WHERE col1 = col1 AND PRINT 4 col1 2 col2 2 col3 2 col4 1 
+JOIN t2 AND t1 WHERE col1 = col1 AND PRINT 4 col1 2 col2 2 col3 2 col4 1 
+JOIN t1 AND t2 WHERE col2 = col5 AND PRINT 4 col1 2 col2 2 col3 2 col4 1 
+DELETE FROM t1 WHERE col3 > 600
+PRINT FROM t1 4 col2 col1 col3 col4 ALL
+DELETE FROM t1 WHERE col3 = 600
+PRINT FROM t1 4 col2 col1 col3 col4 WHERE col2 < 0.01
+DELETE FROM t1 WHERE col3 < 100
+PRINT FROM t1 4 col2 col1 col3 col4 ALL
+DELETE FROM t1 WHERE col2 = 0.4
+GENERATE FOR t1 hash INDEX ON col3
+DELETE FROM t1 WHERE col2 > 5.7
+PRINT FROM t1 4 col2 col1 col3 col4 ALL
+DELETE FROM t1 WHERE col2 < 5.7
+PRINT FROM t1 4 col2 col1 col3 col4 WHERE col2 < 0
+QUIT

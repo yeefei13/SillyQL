@@ -1,0 +1,57 @@
+CREATE tttaaa 4 bool int double string bool int double string
+GENERATE FOR void bst INDEX ON string
+GENERATE FOR tttaaa bst INDEX ON void
+GENERATE FOR tttaaa hash INDEX ON string
+INSERT INTO tttaaa 12 ROWS
+false 1343 -1.1 b
+false 2343 -2.2 c
+true 3343 -3.3 a
+true 4343 -4.4 d
+false 1343 -1.1 s
+false 2343 -2.2 t
+true 3343 -3.3 u
+true 4343 -4.4 v
+false 1343 -1.1 w
+false 2343 -2.2 y
+true 3343 -3.3 x
+true 4343 -4.4 z
+PRINT FROM tttaaa 4 string double int bool WHERE double > -2.2
+PRINT FROM tttaaa 4 string double int bool WHERE double < -2.2
+PRINT FROM tttaaa 4 string double int bool WHERE double = -2.2
+PRINT FROM tttaaa 4 string double int bool WHERE string > c
+PRINT FROM tttaaa 4 string double int bool WHERE string < c
+PRINT FROM tttaaa 4 string double int bool WHERE string = c
+GENERATE FOR tttaaa bst INDEX ON void
+GENERATE FOR tttaaa bst INDEX ON double
+INSERT INTO tttaaa 12 ROWS
+true 5343 -5.5 e
+true 6343 -6.6 f
+true 7343 -7.7 g
+true 8343 -8.8 0
+true 5343 -5.5 h
+true 6343 -6.6 i
+true 7343 -7.7 j
+true 8343 -8.8 k
+true 5343 -5.5 l
+true 6343 -6.6 m
+true 7343 -7.7 n
+true 8343 -8.8 o
+DELETE FROM tttaaa WHERE string > f
+PRINT FROM tttaaa 4 string double int bool WHERE double < 0
+DELETE FROM tttaaa WHERE string = f
+PRINT FROM tttaaa 4 string double int bool WHERE double < 0
+DELETE FROM tttaaa WHERE string < a
+PRINT FROM tttaaa 4 string double int bool WHERE double < 0
+DELETE FROM tttaaa WHERE double = -1.1
+PRINT FROM tttaaa 4 string double int bool WHERE double < 0
+PRINT FROM tttaaa 4 string double int bool WHERE double > -3.3
+PRINT FROM tttaaa 4 string double int bool WHERE double < -3.3
+PRINT FROM tttaaa 4 string double int bool WHERE double = -3.3
+PRINT FROM tttaaa 4 string double int bool WHERE string > c
+PRINT FROM tttaaa 4 string double int bool WHERE string < c
+PRINT FROM tttaaa 4 string double int bool WHERE string = c
+DELETE FROM tttaaa WHERE double > -3.3
+PRINT FROM tttaaa 4 string double int bool WHERE double < 0
+DELETE FROM tttaaa WHERE double < -3.3
+PRINT FROM tttaaa 4 string double int bool WHERE double < 0
+QUIT

@@ -29,12 +29,12 @@ int main(int argc, char *argv[])
 {
     ios_base::sync_with_stdio(false);
     xcode_redirect(argc, argv);
+    cin.tie(0);
     cin >> std::boolalpha; // add these two lines
     cout << std::boolalpha;
     SQL sql;
     sql.setup(argc, argv);
     sql.Running();
-    return 0;
 }
 
 // get opt long in class
@@ -73,7 +73,8 @@ void SQL::setup(int argc, char *argv[])
 
 void SQL::Running()
 {
-    while (cin >> decider)
+    bool stop = true;
+    while (cin >> decider && stop)
     {
         cout << "% ";
         switch (decider[0])
@@ -100,7 +101,7 @@ void SQL::Running()
             Rmove();
             break;
         case 'Q':
-            quit();
+            stop = false;
             break;
         case '#':
             getline(cin, decider);
@@ -110,11 +111,12 @@ void SQL::Running()
             getline(cin, decider);
         }
     }
+    cout << "Thanks for being silly!";
 }
 
 void SQL::Create()
 {
-    cin >> tablename;
+    cin >> tablename >> temp;
     if (SillQL.find(tablename) != SillQL.end())
     {
         getline(cin, temp);
@@ -122,36 +124,46 @@ void SQL::Create()
         return;
     }
     table cur;
-    cout << "New table " << tablename;
-    cin >> temp;
-    cout << " with column(s) ";
-    vector<string> &cur_data = cur.data_type;
-    cur_data.resize((size_t)stoi(temp));
+    cout << "New table " << tablename << " with column(s) ";
+    vector<int> &cur_data = cur.data_type;
+    cur_data.reserve((size_t)stoi(temp));
     cur.col_condition.resize((size_t)stoi(temp), 0);
     for (size_t i = 0; i < (size_t)stoi(temp); i++)
     {
         cin >> colname;
-        cur_data[i] = colname;
+        if (colname[0] == 'i')
+        {
+            cur_data.emplace_back(0);
+        }
+        else if (colname[0] == 'd')
+        {
+            cur_data.emplace_back(1);
+        }
+        if (colname[0] == 's')
+        {
+            cur_data.emplace_back(2);
+        }
+        if (colname[0] == 'b')
+        {
+            cur_data.emplace_back(3);
+        }
     }
     for (size_t i = 0; i < (size_t)stoi(temp); i++)
     {
         cin >> colname;
-        cur.column[colname] = i;
+        cur.column.emplace(colname, i);
         cout << colname << " ";
     }
     cout << "created\n";
 
     cur.col--;
-    SillQL.insert({tablename, cur});
+    SillQL.emplace(tablename, cur);
 }
 
 void SQL::insert()
 {
-    cin >> temp;
-    cin >> tablename;
-    cin >> value;
-    int row_num = stoi(value);
-    cin >> temp;
+    size_t row_num;
+    cin >> temp >> tablename >> row_num >> temp;
     if (SillQL.find(tablename) == SillQL.end())
     {
         cout << "Error during INSERT: " << tablename << " does not name a table in the database\n";
@@ -161,24 +173,22 @@ void SQL::insert()
     else
     {
         table &cur_table = SillQL[tablename];
+        size_t size = cur_table.data.size();
         cout << "Added " << row_num << " rows to " << tablename << " from position "
-             << cur_table.data.size() << " to " << (int)cur_table.data.size() + row_num - 1 << '\n';
-        cur_table.data.reserve(cur_table.data.size()+(size_t)row_num);
-        for (size_t i = 0; i < (size_t)row_num; i++)
+             << size << " to " << size + row_num - 1 << '\n';
+        cur_table.data.reserve(size + row_num);
+        size_t forreserve = cur_table.data_type.size();
+        for (size_t i = 0; i < row_num; i++)
         {
-            // cur_table.data.emplace_back();
             vector<TableEntry> ccur;
+            ccur.reserve(forreserve);
             for (auto j : cur_table.data_type)
             {
                 cin >> temp;
-                // cout << temp << " and "<<j<<"\n";
                 ccur.emplace_back(type_convert(temp, j));
             }
-            cur_table.data.emplace_back(ccur);
+            cur_table.data.push_back(ccur);
         }
-        // cout << cur_table.data.size()<<'\n';
-        // cout << "Added " << row_num << " rows to " << tablename << " from position "
-        //      << cur_table.data.size()-(size_t)row_num << " to " << (int)cur_table.data.size()- 1<<'\n';
         cur_table.table_condition = 0;
     }
 }
@@ -195,46 +205,45 @@ void SQL::Delete()
     table &cur_table = SillQL[tablename];
     if (cur_table.column.find(colname) == cur_table.column.end())
     {
-        cout << "Error during DELETE: " << colname << " does not name a column in "<<tablename<<"\n";
+        cout << "Error during DELETE: " << colname << " does not name a column in " << tablename << "\n";
         getline(cin, temp);
         return;
     }
     size_t cur_index = cur_table.column[colname];
     // vector<vector<TableEntry>> temp;
 
-    string j = cur_table.data_type[cur_index];
+    int j = cur_table.data_type[cur_index];
     TableEntry cur_value(type_convert(value, j));
     size_t num = cur_table.data.size();
     // if(num != 0){
     //     cout<<"\n what happen here:  ";
     //     cout << j <<'\n'<<"dfadfasdfdsaf\n";
     //     cout << cur_table.data[1][cur_index] <<'\n';}
-    
+
     if (op[0] == '<')
     {
-        compare_less f(cur_value,cur_index);
+        compare_less f(cur_value, cur_index);
         // num = cur_table.data.size();
-        auto begin = remove_if(cur_table.data.begin(),cur_table.data.end(),f);
-        cur_table.data.erase(begin,cur_table.data.end());
+        auto begin = remove_if(cur_table.data.begin(), cur_table.data.end(), f);
+        cur_table.data.erase(begin, cur_table.data.end());
         num = num - cur_table.data.size();
-        
     }
     else if (op[0] == '=')
     {
-        compare_eq f(cur_value,cur_index);
+        compare_eq f(cur_value, cur_index);
         // num = cur_table.data.size();
-        auto begin = remove_if(cur_table.data.begin(),cur_table.data.end(),f);
-        cur_table.data.erase(begin,cur_table.data.end());
+        auto begin = remove_if(cur_table.data.begin(), cur_table.data.end(), f);
+        cur_table.data.erase(begin, cur_table.data.end());
         num = num - cur_table.data.size();
     }
     else
     {
-        
-        compare_lar f(cur_value,cur_index);
-        //num = cur_table.data.size();
-        auto begin = remove_if(cur_table.data.begin(),cur_table.data.end(),f);
-        cur_table.data.erase(begin,cur_table.data.end());
-        num = num - cur_table.data.size();     
+
+        compare_lar f(cur_value, cur_index);
+        // num = cur_table.data.size();
+        auto begin = remove_if(cur_table.data.begin(), cur_table.data.end(), f);
+        cur_table.data.erase(begin, cur_table.data.end());
+        num = num - cur_table.data.size();
     }
 
     // if (num != 0){
@@ -263,7 +272,7 @@ void SQL::Gindex()
     table &cur_table = SillQL[tablename];
     if (cur_table.column.find(colname) == cur_table.column.end())
     {
-        cout << "Error during GENERATE: " << colname << " does not name a column in "<<tablename<<"\n";
+        cout << "Error during GENERATE: " << colname << " does not name a column in " << tablename << "\n";
         getline(cin, temp);
         return;
     }
@@ -290,7 +299,7 @@ void SQL::print()
         return;
     }
     size_t j = (size_t)stoi(temp);
-    table cur_table = SillQL[tablename];
+    table &cur_table = SillQL[tablename];
     vector<size_t> print_table;
     vector<string> print_colname;
     int count = 0;
@@ -301,7 +310,7 @@ void SQL::print()
         if (k == cur_table.column.end())
         {
             // error
-            cout << "Error during PRINT: " << temp << " does not name a column in "<<tablename<<"\n";
+            cout << "Error during PRINT: " << temp << " does not name a column in " << tablename << "\n";
             getline(cin, temp);
             return;
         }
@@ -319,7 +328,7 @@ void SQL::print()
         if (k == cur_table.column.end())
         {
             // error
-            cout << "Error during PRINT: " << colname << " does not name a column in "<<tablename<<"\n";
+            cout << "Error during PRINT: " << colname << " does not name a column in " << tablename << "\n";
             getline(cin, temp);
             return;
         }
@@ -346,13 +355,15 @@ void SQL::print()
                 {
                     for (auto k : i->second)
                     {
-                        for (auto j : print_table)
-                        {
-                            if (!quiet)
-                                cout << cur_table.data[k][j] << " ";
-                        }
                         if (!quiet)
+                        {
+                            for (auto j : print_table)
+                            {
+
+                                cout << cur_table.data[k][j] << " ";
+                            }
                             cout << '\n';
+                        }
                         count++;
                     }
                 }
@@ -363,13 +374,14 @@ void SQL::print()
                 {
                     for (auto k : i->second)
                     {
-                        for (auto j : print_table)
-                        {
-                            if (!quiet)
-                                cout << cur_table.data[k][j] << " ";
-                        }
                         if (!quiet)
+                        {
+                            for (auto j : print_table)
+                            {
+                                cout << cur_table.data[k][j] << " ";
+                            }
                             cout << '\n';
+                        }
                         count++;
                     }
                 }
@@ -378,13 +390,14 @@ void SQL::print()
             {
                 for (auto k : cur_table.bst[type_convert(value, cur_table.data_type[cur_index])])
                 {
-                    for (auto j : print_table)
-                    {
-                        if (!quiet)
-                            cout << cur_table.data[k][j] << " ";
-                    }
                     if (!quiet)
+                    {
+                        for (auto j : print_table)
+                        {
+                            cout << cur_table.data[k][j] << " ";
+                        }
                         cout << '\n';
+                    }
                     count++;
                 }
             }
@@ -407,13 +420,14 @@ void SQL::print()
                 vector<size_t> cur_vec = cur_vecitr->second;
                 for (auto i : cur_vec)
                 {
-                    for (auto j : print_table)
-                    {
-                        if (!quiet)
-                            cout << cur_table.data[i][j] << " ";
-                    }
                     if (!quiet)
+                    {
+                        for (auto j : print_table)
+                        {
+                            cout << cur_table.data[i][j] << " ";
+                        }
                         cout << '\n';
+                    }
                     count++;
                 }
             }
@@ -422,52 +436,41 @@ void SQL::print()
         }
         else
         {
-            // if(op[0] == '='){
-            //     compare_eq f(type_convert(value, cur_table.data_type[cur_index]));
-            // }
-            // else if(op[0] == '>'){
-            //     compare_lar f(type_convert(value, cur_table.data_type[cur_index]));
-            // }
-            // else{
-            //     compare_less f(type_convert(value, cur_table.data_type[cur_index]));
-            // }
-
             if (op[0] == '>')
             {
                 // cout << "inhere";
-                compare_lar f(type_convert(value, cur_table.data_type[cur_index]),cur_index);
+                compare_lar f(type_convert(value, cur_table.data_type[cur_index]), cur_index);
                 for (auto i : cur_table.data)
                 {
                     if (f(i))
                     {
-                        for (auto j : print_table)
-                        {
-
-                            if (!quiet)
-                                cout << i[j] << " ";
-                        }
-
                         if (!quiet)
+                        {
+                            for (auto j : print_table)
+                            {
+                                cout << i[j] << " ";
+                            }
                             cout << '\n';
+                        }
                         count++;
                     }
                 }
             }
             else
             {
-                compare_less f(type_convert(value, cur_table.data_type[cur_index]),cur_index);
+                compare_less f(type_convert(value, cur_table.data_type[cur_index]), cur_index);
                 for (auto i : cur_table.data)
                 {
                     if (f(i))
                     {
-                        for (auto j : print_table)
-                        {
-
-                            if (!quiet)
-                                cout << i[j] << " ";
-                        }
                         if (!quiet)
+                        {
+                            for (auto j : print_table)
+                            {
+                                cout << i[j] << " ";
+                            }
                             cout << '\n';
+                        }
                         count++;
                     }
                 }
@@ -485,17 +488,16 @@ void SQL::print()
                 cout << i << ' ';
             }
             cout << '\n';
-        }
-        for (auto i : cur_table.data)
-        {
-            // cout << "haapen here \n";
-            for (auto j : print_table)
+
+            for (auto i : cur_table.data)
             {
-                if (!quiet)
+                // cout << "haapen here \n";
+                for (auto j : print_table)
+                {
                     cout << i[j] << " ";
-            }
-            if (!quiet)
+                }
                 cout << '\n';
+            }
         }
         cout << "Printed " << cur_table.data.size() << " matching rows from " << tablename << '\n';
     }
@@ -515,15 +517,15 @@ void SQL::Join()
         getline(cin, temp);
         return;
     }
-    table cur_table1 = SillQL[tablename];
-    table cur_table2 = SillQL[tablename2];
+    table &cur_table1 = SillQL[tablename];
+    table &cur_table2 = SillQL[tablename2];
     auto curit1 = cur_table1.column.find(colname);
     auto curit2 = cur_table2.column.find(colname2);
     if (curit1 == cur_table1.column.end())
     {
         // error
         // cout << colname << " is not the name of a column in the table specified by " << tablename << '\n';
-        cout << "Error during JOIN: " << colname << " does not name a column in "<<tablename<<"\n";
+        cout << "Error during JOIN: " << colname << " does not name a column in " << tablename << "\n";
         getline(cin, temp);
         return;
     }
@@ -531,7 +533,7 @@ void SQL::Join()
     {
         // error
         // cout << colname2 << " is not the name of a column in the table specified by " << tablename2 << '\n';
-        cout << "Error during JOIN: " << colname2<< " does not name a column in "<<tablename2<<"\n";
+        cout << "Error during JOIN: " << colname2 << " does not name a column in " << tablename2 << "\n";
         getline(cin, temp);
         return;
     }
@@ -539,7 +541,7 @@ void SQL::Join()
     // pair of first = colnum second = table num where first pair is the compare col {1,2}
     vector<pair<size_t, size_t>> print_table;
     vector<string> print_colname;
-    print_table.push_back({(*curit1).second, (*curit2).second});
+    print_table.emplace_back((*curit1).second, (*curit2).second);
     for (size_t i = 0; i < (size_t)stoi(value); i++)
     {
         cin >> temp >> table_num;
@@ -549,13 +551,13 @@ void SQL::Join()
             if (curit == cur_table1.column.end())
             {
                 // error
-                cout << "Error during JOIN: " << temp << " does not name a column in "<<tablename<<"\n";
+                cout << "Error during JOIN: " << temp << " does not name a column in " << tablename << "\n";
                 getline(cin, temp);
                 return;
             }
 
-            print_table.push_back({(*curit).second, 1});
-            print_colname.push_back(temp);
+            print_table.emplace_back((*curit).second, 1);
+            print_colname.emplace_back(temp);
         }
         else
         {
@@ -563,7 +565,7 @@ void SQL::Join()
             if (curit == cur_table2.column.end())
             {
                 // error
-                cout << "Error during JOIN: " << temp << " does not name a column in "<<tablename2<<"\n";
+                cout << "Error during JOIN: " << temp << " does not name a column in " << tablename2 << "\n";
                 getline(cin, temp);
                 return;
             }
@@ -593,29 +595,33 @@ void SQL::Join()
         // can print
         if (cur_vecitr != cur_table2.hash.end())
         {
-            vector<TableEntry> cur_vec1 = cur_table1.data[i];
             vector<size_t> cur_vec2_index = cur_vecitr->second;
-            // each row in table two
-            for (auto k : cur_vec2_index)
+            if (!quiet)
             {
-                // each column
-                for (size_t j = 1; j < print_table.size(); j++)
+                vector<TableEntry> cur_vec1 = cur_table1.data[i];
+                // each row in table two
+                for (auto k : cur_vec2_index)
                 {
-                    // cout<<'\n'<< print_table[j].first<<"   "<<print_table[j].second <<'\n';
-                    if (print_table[j].second == 1)
+                    // each column
+                    for (size_t j = 1; j < print_table.size(); j++)
                     {
-                        if (!quiet)
-                            cout << cur_vec1[print_table[j].first] << ' ';
+
+                        if (print_table[j].second == 1)
+                        {
+                                cout << cur_vec1[print_table[j].first] << ' ';
+                        }
+                        else
+                        {
+                                cout << cur_table2.data[k][print_table[j].first] << ' ';
+                        }
                     }
-                    else
-                    {
-                        if (!quiet)
-                            cout << cur_table2.data[k][print_table[j].first] << ' ';
-                    }
+                        cout << '\n';
+                    count++;
                 }
-                if (!quiet)
-                    cout << '\n';
-                count++;
+            }
+            else
+            {
+                count += (int)cur_vec2_index.size();
             }
         }
     }
@@ -636,12 +642,6 @@ void SQL::Rmove()
     cout << "Table " << tablename << " deleted\n";
 }
 
-void SQL::quit()
-{
-    cout << "Thanks for being silly!";
-    exit(0);
-}
-
 void SQL::table::GenerateHashTable(size_t &index)
 {
     bst.clear();
@@ -653,7 +653,7 @@ void SQL::table::GenerateHashTable(size_t &index)
         //     vector<size_t> a;
         //     hash[data[i][index]] = a;
         // }
-        hash[data[i][index]].push_back(i);
+        hash[data[i][index]].emplace_back(i);
     }
     table_condition = 1;
     col = index;
@@ -670,7 +670,7 @@ void SQL::table::GenerateBstTable(size_t &index)
         //     vector<size_t > a;
         //     bst[data[i][index]] = a;
         // }
-        bst[data[i][index]].push_back(i);
+        bst[data[i][index]].emplace_back(i);
     }
     table_condition = 2;
     col = index;

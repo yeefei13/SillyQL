@@ -1,0 +1,36 @@
+# QUIT
+# JUNK CREATE 281class 3 string string bool emotion person Y/N
+#BADGUY QUIT
+#asdfdsaf adfs asd wee rere 
+BADGUY QUIT
+BADGUY JUNK CREATE 281class 3 string string bool emotion person Y/N
+CREATE sadsss 1 int -
+CREATE sadsss 1 int -
+INSERT INTO sadsss2 1 ROWS 
+CREATE sadsss2 4 bool int double string bbbb iiii dddd ssss
+INSERT INTO sadsss2 2 ROWS
+true -1 22.00 123456789
+false 1 -22.00 1234.5678
+INSERT INTO sadsss2 2 ROWS
+true 0 22 false
+false 0 99.99 true
+PRINT FROM void 4 bool int double string ALL
+PRINT FROM sadsss 1 - ALL
+PRINT FROM sadsss2 4 bool int double void ALL
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb ALL
+PRINT FROM sadsss2 2 double int ALL
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE void = 0
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE ssss > 1234.5678
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE ssss < 1234.5678
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE ssss = 1234.5678
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE double > 22.00
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE double < 22.00
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE double = 22.00
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE int > 0
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE int < 0
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE int = 0
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE bool > false
+PRINT FROM sadsss2 4 ssss dddd iiii bbbb WHERE bool < true
+DELETE FROM void WHERE void = 0
+DELETE FROM sadsss2 WHERE void = 0
+QUIT

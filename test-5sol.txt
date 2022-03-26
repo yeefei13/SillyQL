@@ -141,22 +141,22 @@ Printed 1 matching rows from randomT
 % col2 col1 col3 col4 
 6 66 1100 false 
 7.3 74 1200 false 
-7.3 74 1200 false 
 7.8 87 1800 true 
+7.3 74 1200 false 
 Printed 4 matching rows from randomT
 % col2 col1 col3 col4 
-2.3 21 1600 true 
-2.3 21 2100 true 
-2.3 21 2100 true 
 4.2 35 400 false 
+5.1 47 400 false 
+2.3 21 1600 true 
 4.2 35 1800 false 
+5.1 47 1700 false 
+2.3 21 2100 true 
 4.2 35 2000 false 
+5.1 47 2200 false 
 4.2 35 100 false 
 5.1 47 400 false 
-5.1 47 1700 false 
-5.1 47 2200 false 
-5.1 47 400 false 
 5.1 47 1800 false 
+2.3 21 2100 true 
 Printed 12 matching rows from randomT
 % col2 col1 col3 col4 
 5.7 51 500 true 
